@@ -1,4 +1,5 @@
 <?php 
+require_once "./dbConnection/connection.php";
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 
@@ -8,14 +9,22 @@ $method = $_SERVER["REQUEST_METHOD"];
 if($method == "GET"){
 
     if($route == "/usuarios"){
-        $json = [
-    
-            "email" => "ricardo@gmail.com",
-            "senha" => "12345"
+        $sqlSelect = "SELECT * FROM usuarios";
+        $querySelect = $connection->query($sqlSelect);
+        if($querySelect && $querySelect->num_rows > 0){
+           
+            while($row = $querySelect->fetch_assoc()){
+                 $result = [
+                "Email: " => $row["email"],
+                "Senha: " => $row["senha"]
+                 ];
+               echo json_encode($result);
 
-        ];
-        
-        echo json_encode($json);
+            }
+        }else{
+            echo "Nenhum usuario encontrado";
+        }
+        $connection->close();
     }
     
     else if($route == "/login"){
