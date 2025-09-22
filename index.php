@@ -25,13 +25,14 @@ if ($method == "GET") {
                 }
                 echo json_encode($usuarios);
         } else {
+            http_response_code(404);
             echo "Nenhum usuario encontrado";
         }
         // $connection->close(); ver para depois de fechar reabrir novamente;
     } else if ($route == "/login") {
-        echo "Fazendo login...";
+        echo json_encode("Fazendo login...");
     } else {
-        echo "Não existe nenhuma rota nesse endereço!";
+        echo json_encode("Não existe nenhuma rota nesse endereço!");
         return;
     }
 }
@@ -48,7 +49,8 @@ if ($method == "POST") {
         $result = $stmtSelect->get_result();
 
         if ($result->num_rows > 0) {
-            echo "Email já cadastrado";
+            http_response_code(409);
+            echo json_encode("Email já cadastrado");
             exit;
         } else {
             $sqlInsert = "INSERT INTO usuarios (email, senha) 
@@ -60,9 +62,10 @@ if ($method == "POST") {
                 $senha = $data["senha"];
 
                 $stmt->execute();
-                echo "Usuario criado com sucesso!";
+                echo json_encode("Usuario adicionado com sucesso!");
             } else {
-                echo "Erro ao criar usuario";
+                http_response_code(400);
+                echo json_encode("Erro ao criar usuário");
                 exit;
             }
             $stmt->close();
