@@ -11,17 +11,19 @@ if ($method == "GET") {
 
     if ($route == "/usuarios") {
         $sqlSelect = "SELECT * FROM usuarios";
+        $usuarios = [];
 
         $querySelect = $connection->query($sqlSelect);
         if ($querySelect && $querySelect->num_rows > 0) {
-
             while ($row = $querySelect->fetch_assoc()) {
-                $result = [
-                    "Email" => $row["email"],
-                    "Senha" => $row["senha"]
-                ];
-                echo json_encode($result);
-            }
+                $usuarios[] = [
+                        "id" => $row["id"],
+                        "Email" => $row["email"],
+                        "Senha" => $row["senha"]
+                    ];
+                
+                }
+                echo json_encode($usuarios);
         } else {
             echo "Nenhum usuario encontrado";
         }
