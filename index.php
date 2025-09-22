@@ -18,8 +18,8 @@ if ($method == "GET") {
             while ($row = $querySelect->fetch_assoc()) {
                 $usuarios[] = [
                         "id" => $row["id"],
-                        "Email" => $row["email"],
-                        "Senha" => $row["senha"]
+                        "email" => $row["email"],
+                        "senha" => $row["senha"]
                     ];
                 
                 }
