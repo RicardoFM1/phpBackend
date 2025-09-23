@@ -31,7 +31,9 @@ if ($method == "GET") {
         // $connection->close(); ver para depois de fechar reabrir novamente;
     } else if ($route == "/login") {
         echo json_encode("Fazendo login...");
-    } else {
+    }
+    
+    else {
         echo json_encode("Não existe nenhuma rota nesse endereço!");
         return;
     }
