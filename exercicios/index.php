@@ -60,9 +60,9 @@ if($method == "POST"){
     if(isset($_POST["nome"]) || empty($_POST["nome"]) || isset($_POST["data_de_inicio"]) || empty($_POST["data_de_inicio"]) 
     || isset($_POST["data_de_termino"]) || empty($_POST["data_de_termino"]) || isset($_POST["ingresso_m_valor"]) || empty($_POST["ingresso_m_valor"])
     || isset($_POST["ingresso_m_disponivel"]) || empty($_POST["ingresso_m_disponivel"]) || isset($_POST["ingresso_m_vendido"]) || empty($_POST["ingresso_m_vendido"])
-    || isset($_POST["nome"]) || empty($_POST["nome"]) || isset($_POST["nome"]) || empty($_POST["nome"]
-    || isset($_POST["nome"]) || empty($_POST["nome"]))){
-
+    || isset($_POST["ingresso_i_valor"]) || empty($_POST["ingresso_i_valor"]) || isset($_POST["ingresso_i_disponivel"]) || empty($_POST["ingresso_i_disponivel"]
+    || isset($_POST["ingresso_i_vendido"]) || empty($_POST["ingresso_i_vendido"]))){
+// consultar para ver como verificar quando está vazio
         http_response_code(400);
         echo json_encode("Necessário preencher os campos!");
         return;
