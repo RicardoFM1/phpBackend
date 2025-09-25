@@ -1,5 +1,5 @@
 <?php
-require_once "./dbConnection/connection.php";
+require "../dbConnection/connection.php";
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 
