@@ -1,5 +1,6 @@
 <?php
 require("../dbConnection/connection.php");
+
 $rota = $_SERVER["REQUEST_URI"];
 $method = $_SERVER["REQUEST_METHOD"];
 
@@ -47,6 +48,7 @@ if($method == "POST"){
         $body = file_get_contents('php://input');
         $data = json_decode($body, true);
 
+   
     $nome = $data["nome"];
     $dtInicio = $data["data_de_inicio"];
     $dtTermino = $data["data_de_termino"];
@@ -57,16 +59,22 @@ if($method == "POST"){
     $ingressoIDisponivel = $data["ingresso_i_disponivel"];
     $ingressoIVendido = $data["ingresso_i_vendido"];
 
-    if(isset($_POST["nome"]) || empty($_POST["nome"]) || isset($_POST["data_de_inicio"]) || empty($_POST["data_de_inicio"]) 
-    || isset($_POST["data_de_termino"]) || empty($_POST["data_de_termino"]) || isset($_POST["ingresso_m_valor"]) || empty($_POST["ingresso_m_valor"])
-    || isset($_POST["ingresso_m_disponivel"]) || empty($_POST["ingresso_m_disponivel"]) || isset($_POST["ingresso_m_vendido"]) || empty($_POST["ingresso_m_vendido"])
-    || isset($_POST["ingresso_i_valor"]) || empty($_POST["ingresso_i_valor"]) || isset($_POST["ingresso_i_disponivel"]) || empty($_POST["ingresso_i_disponivel"]
-    || isset($_POST["ingresso_i_vendido"]) || empty($_POST["ingresso_i_vendido"]))){
-// consultar para ver como verificar quando está vazio
-        http_response_code(400);
+    if(empty($nome) || empty($dtInicio) || empty($dtTermino) || empty($ingressoMValor) || empty($ingressoMDisponivel) 
+    || empty($ingressoMVendido) || empty($ingressoIValor) || empty($ingressoIDisponivel) || empty($ingressoIVendido)){
+
         echo json_encode("Necessário preencher os campos!");
-        return;
+        exit;
     }
+// //     if(isset($_POST["nome"]) || empty($_POST["nome"]) || isset($_POST["data_de_inicio"]) || empty($_POST["data_de_inicio"]) 
+// //     || isset($_POST["data_de_termino"]) || empty($_POST["data_de_termino"]) || isset($_POST["ingresso_m_valor"]) || empty($_POST["ingresso_m_valor"])
+// //     || isset($_POST["ingresso_m_disponivel"]) || empty($_POST["ingresso_m_disponivel"]) || isset($_POST["ingresso_m_vendido"]) || empty($_POST["ingresso_m_vendido"])
+// //     || isset($_POST["ingresso_i_valor"]) || empty($_POST["ingresso_i_valor"]) || isset($_POST["ingresso_i_disponivel"]) || empty($_POST["ingresso_i_disponivel"]
+// //     || isset($_POST["ingresso_i_vendido"]) || empty($_POST["ingresso_i_vendido"]))){
+// // // consultar para ver como verificar quando está vazio
+//         http_response_code(400);
+//         echo json_encode("Necessário preencher os campos!");
+//         return;
+//     }
 
         $sqlInsert = "INSERT INTO eventos (nome,
  data_de_inicio ,
