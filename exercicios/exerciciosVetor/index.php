@@ -136,7 +136,7 @@ if($rota == "/numeros/pares"){
     }
 }
     
-if($rota = "/padrao"){
+if($rota == "/padrao"){
    
     for($numLinhas = 1; $numLinhas <= 1; $numLinhas++){
       $numChar = "";
@@ -153,7 +153,51 @@ if($rota = "/padrao"){
         }
     }
 }
+if($rota == "/numeros/vetor/somar"){
+    $vetor = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+    $sum = array_sum($vetor);
+    echo $sum;
+
+//     $sum = 0;
+//   foreach($vetor as $num){
+//     $sum += $num; 
+//   }
+//   echo $sum;
+        
+    
+}
+if($rota == "/numeros/vetor/posicao"){
+    $vetor = [1, 2, 3, 4, 5, 6, 7, 8];
+
+    echo "O maior valor do vetor é: " . max($vetor);
+    $posicao = array_search(max($vetor), $vetor);
+    echo "<br>";
+    echo "A sua posiçao é: " . $posicao;
+    echo "<br>";
+    $posicaoMenor = array_search(min($vetor), $vetor);
+    echo "O menor valor do vetor é: " . min($vetor);
+    echo "<br>";
+    echo "A sua posição é: " . $posicaoMenor;
+    echo "<br>";
+
+}
+if($rota == "/numeros/vetor/inverso"){
+    $nums = [1, 2, 3, 4, 5];
+
+    $numsInverso = [array_reverse($nums)];
+    echo "Esse são os números: ";
+    echo "<br>";
+    echo "<pre>";
+    print_r($nums);
+    echo "<pre>";
+    echo "<br>";
+    echo "Este é o inverso desses números: ";
+    echo "<br>";
+    echo "<pre>";
+    print_r($numsInverso);
+    echo "<pre>"; 
+}
 }
 ?>
 
@@ -166,11 +210,7 @@ if($rota = "/padrao"){
 
 * Exercícios de Vetores e Matrizes
 
-1. Leia um vetor de 10 números inteiros e exiba a soma de todos os elementos.
 
-2. Leia um vetor de 8 números e informe qual o maior, o menor e suas posições no vetor.
-
-3. Leia 5 números e mostre-os na ordem inversa de entrada.
 
 4. Leia uma matriz 5x5 e mostre o maior elemento de cada linha. -->  
 
