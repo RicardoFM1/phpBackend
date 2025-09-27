@@ -90,7 +90,27 @@ if($rota == "/adivinhar"){
     }
 }
 
+if($rota == "/numeros/fatorial"){
+    $body = file_get_contents("php://input");
+    $data = json_decode($body, true);
 
+    
+    $num = $data["numero"];
+    $numFatorial = 1;
+    if($num >= 0){
+        
+        while($num > 1){
+      
+            $numFatorial *= $num;
+            $num--;
+        }
+        
+      
+       echo $numFatorial;
+       
+
+    }
+}
 }
 
 else if($metodo == "GET"){
@@ -116,6 +136,24 @@ if($rota == "/numeros/pares"){
     }
 }
     
+if($rota = "/padrao"){
+   
+    for($numLinhas = 1; $numLinhas <= 1; $numLinhas++){
+      $numChar = "";
+        
+        for($numCharLinha = 1; $numCharLinha <= 6; $numChar .= "*"){
+           if(!empty($numChar)){
+               echo $numChar;
+            }
+            echo "<br>";
+            
+            
+            
+            $numCharLinha++;
+        }
+    }
+}
+
 }
 ?>
 
@@ -125,18 +163,6 @@ if($rota == "/numeros/pares"){
 
 <!-- * Exercícios de esturturas de repetição:
 
-
-2. Imprima todos os números pares de 1 a 50 usando for.
-
-3. Peça um número ao usuário e calcule o fatorial dele usando while.
-
-5. Construa este padrão com um for duplo
-
-*
-**
-***
-****
-*****
 
 * Exercícios de Vetores e Matrizes
 
