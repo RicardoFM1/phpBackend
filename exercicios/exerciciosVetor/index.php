@@ -198,19 +198,31 @@ if($rota == "/numeros/vetor/inverso"){
     print_r($numsInverso);
     echo "<pre>"; 
 }
+if($rota == "/numeros/matriz/5x5"){
+    $matriz = [
+        [1,2,43,53,21],
+        [12,22,16,17,18],
+        [14,26,63,211,23],
+        [19,6,24,67,15],
+        [29,32,49,90,7]
+    ];
+    // echo "<pre>";
+    // print_r($matriz);
+    // echo "<pre>";
+    echo "O maior elemento da primeira linha do 5x5 é: " . max($matriz[0]);
+    echo "<br>";
+    echo "O maior elemento da segunda linha do 5x5 é: " . max($matriz[1]);
+    echo "<br>";
+    echo "O maior elemento da terceira linha do 5x5 é: " . max($matriz[2]);
+    echo "<br>";
+    echo "O maior elemento da quarta linha do 5x5 é: " . max($matriz[3]);
+    echo "<br>";
+    echo "O maior elemento da quinta linha do 5x5 é: " . max($matriz[4]);
+}
 }
 ?>
 
 
 
-
-
-<!-- * Exercícios de esturturas de repetição:
-
-
-* Exercícios de Vetores e Matrizes
-
-
-
-4. Leia uma matriz 5x5 e mostre o maior elemento de cada linha. -->  
+ 
 
