@@ -184,19 +184,18 @@ if($rota == "/numeros/vetor/posicao"){
 }
 if($rota == "/numeros/vetor/inverso"){
     $nums = [1, 2, 3, 4, 5];
+    $numsInvertidos = [];
 
-    $numsInverso = [array_reverse($nums)];
-    echo "Esse são os números: ";
-    echo "<br>";
+    for($i = count($nums) - 1; $i >= 0; $i--){
+        array_push($numsInvertidos, $nums[$i]);
+    }
     echo "<pre>";
     print_r($nums);
     echo "<pre>";
-    echo "<br>";
-    echo "Este é o inverso desses números: ";
-    echo "<br>";
     echo "<pre>";
-    print_r($numsInverso);
-    echo "<pre>"; 
+    print_r($numsInvertidos);
+    echo "<pre>";
+    
 }
 if($rota == "/numeros/matriz/5x5"){
     $matriz = [
@@ -206,18 +205,19 @@ if($rota == "/numeros/matriz/5x5"){
         [19,6,24,67,15],
         [29,32,49,90,7]
     ];
-    // echo "<pre>";
-    // print_r($matriz);
-    // echo "<pre>";
-    echo "O maior elemento da primeira linha do 5x5 é: " . max($matriz[0]);
-    echo "<br>";
-    echo "O maior elemento da segunda linha do 5x5 é: " . max($matriz[1]);
-    echo "<br>";
-    echo "O maior elemento da terceira linha do 5x5 é: " . max($matriz[2]);
-    echo "<br>";
-    echo "O maior elemento da quarta linha do 5x5 é: " . max($matriz[3]);
-    echo "<br>";
-    echo "O maior elemento da quinta linha do 5x5 é: " . max($matriz[4]);
+
+    for($i = 0; $i < 5; $i++){
+        $numMaior = $matriz[$i][0];
+        foreach($matriz[$i] as $numero){
+            if($numero > $numMaior){
+                $numMaior = $numero;
+                
+            }
+        }
+        echo "O maior elemento da linha $i do 5x5 é: " . $numMaior;
+        echo "<br>";
+        
+    }
 }
 }
 ?>
