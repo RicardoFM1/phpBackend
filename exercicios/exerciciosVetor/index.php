@@ -156,14 +156,14 @@ if($rota == "/padrao"){
 if($rota == "/numeros/vetor/somar"){
     $vetor = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-    $sum = array_sum($vetor);
-    echo $sum;
+    // $sum = array_sum($vetor);
+    // echo $sum;
 
-//     $sum = 0;
-//   foreach($vetor as $num){
-//     $sum += $num; 
-//   }
-//   echo $sum;
+    $sum = 0;
+  foreach($vetor as $num){
+    $sum += $num; 
+  }
+  echo $sum;
         
     
 }
