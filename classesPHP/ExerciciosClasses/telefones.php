@@ -18,8 +18,10 @@ class Agenda {
        array_push($this->listaTelefones["nomes"], $nome);
        array_push($this->listaTelefones["telefone"], $telefone);
     }
-    public function RemoverTelefone(){
-
+    public function RemoverTelefone(string $nome, string $telefone){
+        array_diff($this->listaTelefones["nomes"], array($nome));
+        array_diff($this->listaTelefones["telefone"], array($telefone));
+        $this->listaTelefones = array_values($this->listaTelefones);
     }
     
 }
