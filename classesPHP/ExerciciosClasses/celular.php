@@ -3,18 +3,22 @@
 
 class Celular{
     public int $porcentagemBateria = 100;
-    // public bool $ligado;
+    public bool $ligado;
 
     public function Ligar(){
-        // $this->ligado = true;
-        echo "O celular está ligado";
+        $this->ligado = true;
+        if($this->ligado == true){
+            echo "O celular está ligado";
+        }
         echo "<br>";
         echo "A porcentagem da bateria está em: " . $this->porcentagemBateria . "%";
     }
 
     public function Desligar(){
-        // $this->ligado = false;
-        echo "O celular está desligado";
+        $this->ligado = false;
+        if($this->ligado == false){
+            echo "O celular está desligado";
+        }
     }
 
     public function UsarBateria(){
