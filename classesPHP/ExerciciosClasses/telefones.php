@@ -19,9 +19,17 @@ class Agenda {
        array_push($this->listaTelefones["telefone"], $telefone);
     }
     public function RemoverTelefone(string $nome, string $telefone){
-        array_diff($this->listaTelefones["nomes"], array($nome));
-        array_diff($this->listaTelefones["telefone"], array($telefone));
-        $this->listaTelefones = array_values($this->listaTelefones);
+        foreach ($this->listaTelefones["nomes"] as $indice => $valorNome) {
+            if ($valorNome === $nome && $this->listaTelefones["telefone"][$indice] === $telefone) {
+                unset($this->listaTelefones["nomes"][$indice]);
+                unset($this->listaTelefones["telefone"][$indice]);
+              
+                $this->listaTelefones["nomes"] = array_values($this->listaTelefones["nomes"]);
+                $this->listaTelefones["telefone"] = array_values($this->listaTelefones["telefone"]);
+                return true;
+            }
+        }
+        return false; 
     }
     
 }
