@@ -5,7 +5,7 @@ class Moto extends Veiculo
 {
     public function LigarMotor()
     {
-        echo "Motor da moto ligado!";
+        echo "Motor da moto ligado! rom rom rom rommm";
         echo "<br>";
     }
     public function DesligarMotor()
