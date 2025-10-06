@@ -55,6 +55,7 @@ echo "<pre>";
 
 $moto->LigarMotor();
 $moto->DesligarMotor();
+$moto->EmpinarMoto();
 
 echo "<pre>";
 print_r($carro);
@@ -62,6 +63,7 @@ echo "<pre>";
 
 $carro->LigarMotor();
 $carro->DesligarMotor();
+$carro->AbrirPortas();
 
 echo "<pre>";
 print_r($caminhao);
@@ -69,3 +71,4 @@ echo "<pre>";
 
 $caminhao->LigarMotor();
 $caminhao->DesligarMotor();
+$caminhao->DescarregarCarga();

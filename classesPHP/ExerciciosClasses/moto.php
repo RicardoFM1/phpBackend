@@ -13,4 +13,8 @@ class Moto extends Veiculo
         echo "Motor da moto desligado!";
     }
 
+    public function EmpinarMoto(){
+        echo "Moto sendo empinada!";
+        echo "Os tiras estão atrás!!";
+    }
 }

@@ -11,4 +11,9 @@ class Caminhao extends Veiculo{
     {
         echo "Motor do caminhao Desligado!";
     }
+
+    public function DescarregarCarga(){
+        echo "Descarregando toda a carga";
+        echo "0kg na caçamba";
+    }
 }

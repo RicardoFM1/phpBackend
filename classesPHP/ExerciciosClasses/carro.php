@@ -10,4 +10,9 @@ class Carro extends Veiculo{
     {
         echo "Motor do carro desligado!";
     }
+
+    public function AbrirPortas(){
+        echo "Abrindo as portas...";
+        echo "Todas as portas abertas";
+    }
 }
